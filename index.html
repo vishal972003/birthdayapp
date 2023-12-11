@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Birthday Tracker by Vishal</title>
+		<style>
+			*{ font-family: Arial; font-size:40px;}
+			body{background-color:azure;}
+			.btn{width:30%; border-radius:30px;}
+		</style>
+		<script>
+			let frds=["purvi","sri"];
+			function operation()
+			{
+				event.preventDefault();
+				let action=document.activeElement.value;
+				if (action=="add")
+				{
+					let name= prompt("Enter friend name to be add");
+					if (name!="")
+						frds.push(name);
+					show();
+				}
+				else if(action =="rem")
+				{
+
+					let name= prompt("Enter friend name to remove");
+					let i= frds.indexOf(name);
+					if(i==-1)
+						alert(name + "not found ");
+					else
+						frds.splice(i,1);
+					show();
+				}
+
+			}
+
+			function show()
+			{
+
+				let ans=document.getElementById("ans");
+				ans.innerHTML=frds;
+		
+			}
+		</script>
+	</head>
+	<body>
+	<center>
+		<h1>Vishal Birthday App</h1>
+		<form onsubmit="operation()">
+			<input type="submit" value="add" class="btn"/>
+			<input type="submit" value="rem" class="btn">
+
+		</form>
+		<h2 id="ans"/>
+		<script>
+			show();
+		</script>
+	</center>
+	</body>
+
+</html>
